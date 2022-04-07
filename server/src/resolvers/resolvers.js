@@ -3,6 +3,18 @@ const resolvers = {
 		listSpice(parent, args, { methodsQuery }) {
 			return methodsQuery.getSpices();
 		},
+		listDish(parent, args, { methodsQuery }) {
+			return methodsQuery.getDishes();
+		},
+	},
+
+	Dish: {
+		ingredients(parent, args, { methodsQuery }) {
+			return methodsQuery.getIngredients(parent.ingredientId);
+		},
+		spices(parent, args, { methodsQuery }) {
+			return methodsQuery.getSpices(parent.spiceId);
+		},
 	},
 
 	Mutation: {
@@ -11,6 +23,9 @@ const resolvers = {
 		},
 		addIngredient(parent, args, { methodsQuery }) {
 			return methodsQuery.postIngredient(args);
+		},
+		addDish(parent, args, { methodsQuery }) {
+			return methodsQuery.postDish(args);
 		},
 	},
 };
