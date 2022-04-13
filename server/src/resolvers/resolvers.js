@@ -6,6 +6,12 @@ const resolvers = {
 		listDish(parent, args, { methodsQuery }) {
 			return methodsQuery.getDishes();
 		},
+		listIngredient(parent, args, { methodsQuery }) {
+			return methodsQuery.getIngredients();
+		},
+		detailDish(parent, args, { methodsQuery }) {
+			return methodsQuery.getDish(args);
+		},
 	},
 
 	Dish: {
@@ -26,6 +32,12 @@ const resolvers = {
 		},
 		addDish(parent, args, { methodsQuery }) {
 			return methodsQuery.postDish(args);
+		},
+		removeDish(parent, args, { methodsQuery }) {
+			return methodsQuery.deleteDish(args);
+		},
+		updateDish(parent, args, { methodsQuery }) {
+			return methodsQuery.patchDish(args);
 		},
 	},
 };

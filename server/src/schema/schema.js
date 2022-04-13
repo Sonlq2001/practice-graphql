@@ -23,12 +23,20 @@ const typeDefs = gql`
 		listSpice: [Spice]
 		listIngredient: [Ingredient]
 		detailIngredient(id: ID!): Ingredient
+		detailDish(id: ID!): Dish
 	}
 
 	type Mutation {
 		addSpice(name: String!): Spice
 		addIngredient(name: String!): Ingredient
-		addDish(name: String!, ingredientId: [ID!]!, spiceId: [ID!]!): Dish
+		addDish(name: String!, ingredientId: [String!], spiceId: [String!]): Dish
+		removeDish(id: ID!): Dish
+		updateDish(
+			_id: ID!
+			name: String!
+			ingredientId: [String!]
+			spiceId: [String!]
+		): Dish
 	}
 `;
 

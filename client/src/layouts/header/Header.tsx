@@ -1,16 +1,16 @@
-import React from 'react';
-import {Navbar,Container} from 'react-bootstrap';
+import React from "react";
+import { Navbar, Container } from "react-bootstrap";
 
 const Header = () => {
-  return (
-    <Navbar bg="light">
-      <Container>
-        <Navbar.Brand href="#home">
-          <h4>React & Graphql</h4>
-        </Navbar.Brand>
-      </Container>
-    </Navbar>
-  )
-}
+	return (
+		<Navbar bg="light">
+			<Container>
+				<Navbar.Brand href="#home">
+					<h4>RESTFUL & Graphql</h4>
+				</Navbar.Brand>
+			</Container>
+		</Navbar>
+	);
+};
 
-export default Header
+export default Header;

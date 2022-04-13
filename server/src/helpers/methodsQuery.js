@@ -58,6 +58,33 @@ const getDishes = async () => {
 	}
 };
 
+const deleteDish = async ({ id }) => {
+	try {
+		const data = await Dish.findOneAndDelete({ _id: id });
+		return data;
+	} catch (error) {
+		return error.message;
+	}
+};
+
+const getDish = async ({ id }) => {
+	try {
+		const data = await Dish.findById(id);
+		return data;
+	} catch (error) {
+		return error.message;
+	}
+};
+
+const patchDish = async ({ _id, ...rest }) => {
+	try {
+		const data = await Dish.findOneAndUpdate({ _id }, rest, { new: true });
+		return data;
+	} catch (error) {
+		return error.message;
+	}
+};
+
 module.exports = {
 	getSpices,
 	postSpice,
@@ -65,4 +92,7 @@ module.exports = {
 	getIngredients,
 	postDish,
 	getDishes,
+	deleteDish,
+	getDish,
+	patchDish,
 };
